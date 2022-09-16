@@ -1,5 +1,6 @@
 package com.jwt.demo.model;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -7,6 +8,7 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Document
+@Data
 public class User {
 
     @Id
