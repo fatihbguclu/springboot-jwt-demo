@@ -29,7 +29,7 @@ public class UserController {
         return userService.signIn(username,password);
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/register")
     public String signUp(@RequestBody UserDto userDto){
         return userService.signUp(userMapper.toUser(userDto));
     }

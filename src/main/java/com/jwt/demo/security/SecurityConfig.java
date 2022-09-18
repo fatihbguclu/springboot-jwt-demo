@@ -25,8 +25,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Authenticated EntryPoints
         http.authorizeRequests()
-                .antMatchers("/users/signin").permitAll()
-                .antMatchers("/users/register").permitAll()
+                .antMatchers("/api/users/signin").permitAll()
+                .antMatchers("/api/users/register").permitAll()
                 .anyRequest().authenticated();
     }
 
