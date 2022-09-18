@@ -1,5 +1,6 @@
 package com.jwt.demo.security;
 
+import com.jwt.demo.exception.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -25,10 +26,9 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 Authentication auth = jwtProvider.getAuth(token);
                 SecurityContextHolder.getContext().setAuthentication(auth);
             }
-        }catch (Exception e){
-            // TODO Make Custom Exception
+        }catch (CustomException ex){
             SecurityContextHolder.clearContext();
-            response.sendError(401,"Auth Error");
+            response.sendError(ex.getStatus().value(), ex.getMessage());
             return;
         }
 
