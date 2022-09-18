@@ -9,6 +9,8 @@ import org.mapstruct.Mapping;
 public interface UserMapper {
 
     UserDto toUserDto(User user);
+
+    @Mapping(target = "id", ignore = true)
     User toUser(UserDto userDto);
 
 }
